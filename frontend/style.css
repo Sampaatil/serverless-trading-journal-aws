@@ -1,0 +1,158 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
+  margin: 0;
+}
+
+/* ---------- LAYOUT ---------- */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ---------- TOP BAR ---------- */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.month-box {
+  padding: 8px;
+}
+
+.logout {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* ---------- FORM ---------- */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full {
+  grid-column: span 2;
+}
+
+label {
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #374151;
+}
+
+input, select, textarea {
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: none;
+  height: 80px;
+}
+
+/* ---------- BUTTON ---------- */
+.primary {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 200px;
+}
+
+.primary:hover {
+  background: #1d4ed8;
+}
+
+/* ---------- TABLE ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+}
+
+th, td {
+  border: 1px solid #e5e7eb;
+  padding: 8px;
+  text-align: center;
+  font-size: 13px;
+}
+
+th {
+  background: #f9fafb;
+}
+
+/* ---------- CHART ---------- */
+.chart-box {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- ACCURACY ---------- */
+.accuracy {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* ---------- AUTH ---------- */
+.center-page {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.auth-box {
+  margin-top: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ---------- ACTION BUTTONS ---------- */
+.edit {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.delete {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.total-row td {
+font-weight: bold;
+background: #f8f9fa;
+}

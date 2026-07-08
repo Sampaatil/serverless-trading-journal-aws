@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TradeVistaBook</title>
+
+<link rel="stylesheet" href="style.css?v=2">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- FIX: defer ensures functions load before click -->
+<script src="script.js?v=2" defer></script>
+
+<!-- remove favicon error -->
+<link rel="icon" href="data:,">
+</head>
+
+<body>
+
+<!-- FRONT PAGE -->
+<div id="front">
+  <div class="center-page">
+    <h1>Trading Journal</h1>
+    <p>
+      A trading journal helps you track performance, identify mistakes,
+      and improve discipline.<br><br>
+      Professional traders don’t grow by trading more —
+      they grow by reviewing better.
+    </p>
+
+    <div class="auth-buttons">
+      <button class="primary" onclick="openSignup()">Sign Up</button>
+      <button class="primary" onclick="openLogin()">Login</button>
+    </div>
+
+    <div id="signupBox" class="auth-box hidden">
+      <input id="suMobile" placeholder="Mobile Number">
+      <input id="suPass" type="password" placeholder="Password">
+      <button class="primary" style="margin-top:10px" onclick="signup()">Create Account</button>
+    </div>
+
+    <div id="loginBox" class="auth-box hidden">
+      <input id="liMobile" placeholder="Mobile Number">
+      <input id="liPass" type="password" placeholder="Password">
+      <button class="primary" style="margin-top:10px" onclick="login()">Login</button>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="hidden">
+<div class="container">
+
+<div class="top-bar">
+  <select id="month" class="month-box" onchange="loadTrades()">
+    <option>January</option><option>February</option><option>March</option>
+    <option>April</option><option>May</option><option>June</option>
+    <option>July</option><option>August</option><option>September</option>
+    <option>October</option><option>November</option><option>December</option>
+  </select>
+  <button class="logout" onclick="logout()">Logout</button>
+</div>
+
+<form id="tradeForm">
+<div class="form-grid">
+
+<div class="form-group">
+<label>Date</label>
+<input type="date" id="date" required>
+</div>
+
+<div class="form-group">
+<label>Pair</label>
+<select id="pair" required>
+<option disabled selected>PAIR</option>
+<option>BTCUSD</option><option>ETHUSD</option><option>XAUUSD</option>
+<option>EURUSD</option><option>GBPUSD</option><option>USDCAD</option>
+<option>USDJPY</option><option>USDCHF</option><option>GBPJPY</option>
+<option>AUDUSD</option><option>NZDUSD</option><option>USOIL</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Reason</label>
+<input id="reason" placeholder="Reason">
+</div>
+
+<div class="form-group">
+<label>Trade Direction</label>
+<select id="direction" required>
+<option disabled selected>TRADE DIRECTION</option>
+<option value="BUYING">BUYING</option>
+<option value="SELLING">SELLING</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Stop Loss</label>
+<input type="number" id="sl" placeholder="SL (Pips)">
+</div>
+
+<div class="form-group">
+<label>Riskfree</label>
+<select id="riskfree" required>
+<option disabled selected>RISKFREE</option>
+<option>YES</option><option>NO</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>End Result</label>
+<select id="result" required>
+<option disabled selected>END RESULT</option>
+<option>TP HIT</option><option>SL HIT</option><option>BREAKEVEN</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Pips</label>
+<input type="number" id="pips" placeholder="Pips Captured">
+</div>
+
+<div class="form-group full">
+<label>Analysis</label>
+<textarea id="analysis" placeholder="Analysis & Mistakes"></textarea>
+</div>
+
+</div>
+
+<button class="primary" type="submit" style="margin-top:15px">
+Add / Update Trade
+</button>
+</form>
+
+<h2 style="margin-top:25px;">Recent Trades</h2>
+<table>
+
+<thead>
+<tr>
+<th>SR</th>
+<th>Date</th>
+<th>Pair</th>
+<th>Reason</th>
+<th>Trade Direction</th>
+<th>SL</th>
+<th>Riskfree</th>
+<th>End Result</th>
+<th>Pips Captured</th>
+<th>Analysis</th>
+<th>Actions</th>
+</tr>
+</thead>
+
+<tbody id="rows"></tbody>
+
+<tfoot>
+<tr class="total-row">
+<td colspan="8" style="text-align:right;"><strong>Total Pips =</strong></td>
+<td><strong id="total">0</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tfoot>
+</table>
+
+<div class="chart-box"><canvas id="pie"></canvas></div>
+<div class="accuracy" id="accuracy">Trade Accuracy: 0%</div>
+
+</div>
+</div>
+
+</body>
+</html>
