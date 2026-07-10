@@ -20,7 +20,6 @@ override.tf.json
 .DS_Store
 Thumbs.db
 
-terraform.tfvars
 terraform.tfvars.json
 terraform.tfstate.backup
 terraform.tfstate
